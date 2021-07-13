@@ -10,9 +10,8 @@ removeItem.addEventListener("click", (e) => deleteItem(e));
 function changeStyle(e) {
     buttons.forEach(button => button.classList.remove("active"));
     e.target.className = "active";
-
-    const newArray = e.target.innerText.split(":");
-    return parentContainer.style[newArray[0]] = newArray[1];
+    const propertyName = e.target.parentNode.querySelector("span").innerText;
+    return parentContainer.style[propertyName] = e.target.innerText;
 }
 
 function createItem(e) {
