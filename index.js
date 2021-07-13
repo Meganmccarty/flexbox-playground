@@ -8,7 +8,7 @@ addItem.addEventListener("click", (e) => createItem(e));
 removeItem.addEventListener("click", (e) => deleteItem(e));
 
 function changeStyle(e) {
-    buttons.forEach(button => button.classList.remove("active"));
+    e.target.parentNode.querySelectorAll("button").forEach(button => button.classList.remove("active"));
     e.target.className = "active";
     const propertyName = e.target.parentNode.querySelector("span").innerText;
     return parentContainer.style[propertyName] = e.target.innerText;
