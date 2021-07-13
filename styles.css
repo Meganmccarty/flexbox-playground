@@ -4,10 +4,24 @@ body {
     align-items: center;
 }
 
+.button-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+span {
+    font-size: 20px;
+    padding: 10px;
+}
+
 button {
     background-color:rgb(165, 208, 248);
     padding: 10px;
     border: none;
+    margin: 5px;
 }
 
 button:hover {
@@ -17,6 +31,9 @@ button:hover {
 
 #flexbox-parent {
     display: flex;
+    border: 5px solid black;
+    margin: 10px;
+    width: 100%;
 }
 
 .flexbox-child {
