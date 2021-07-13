@@ -8,8 +8,11 @@ addItem.addEventListener("click", (e) => createItem(e));
 removeItem.addEventListener("click", (e) => deleteItem(e));
 
 function changeStyle(e) {
+    buttons.forEach(button => button.classList.remove("active"));
+    e.target.className = "active";
+
     const newArray = e.target.innerText.split(":");
-    parentContainer.style[newArray[0]] = newArray[1];
+    return parentContainer.style[newArray[0]] = newArray[1];
 }
 
 function createItem(e) {
