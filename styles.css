@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background-color:rgb(165, 208, 248);
+    padding: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(77, 164, 245);
+    color: white;
+}
+
+#flexbox-parent {
+    display: flex;
+}
+
+.flexbox-child {
+    display: block;
+    background-color: rgb(165, 165, 248);
+    color: black;
+    border: 5px solid rgb(130, 130, 245);
+    margin: 10px;
+    padding: 30px;
+}
