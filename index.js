@@ -19,23 +19,25 @@ function setStyling(property, value) {
     }
     switch (property) {
         case "flexDirection":
-            propertyElement.innerHTML = `flex-direction: ${value};<br>`;
+            propertyElement.innerHTML = `&nbsp;&nbsp;flex-direction: ${value};<br>`;
             break;
         case "flexWrap":
-            propertyElement.innerHTML = `flex-wrap: ${value};<br>`
+            propertyElement.innerHTML = `&nbsp;&nbsp;flex-wrap: ${value};<br>`
             break;
         case "justifyContent":
-            propertyElement.innerHTML = `justify-content: ${value};<br>`
+            propertyElement.innerHTML = `&nbsp;&nbsp;justify-content: ${value};<br>`
             break;
         case "alignItems":
-            propertyElement.innerHTML = `align-items: ${value};<br>`
+            propertyElement.innerHTML = `&nbsp;&nbsp;align-items: ${value};<br>`
             break;
         case "alignContent":
-            propertyElement.innerHTML = `align-content: ${value};<br>`
+            propertyElement.innerHTML = `&nbsp;&nbsp;align-content: ${value};<br>`
             break;
     }
-
     codeContainer.appendChild(propertyElement)
+    Array.from(codeContainer.querySelectorAll("code"))
+        .sort((a, b) => a.id.localeCompare(b.id))
+        .forEach(code => codeContainer.appendChild(code))
 }
 
 function changeStyle(e) {
