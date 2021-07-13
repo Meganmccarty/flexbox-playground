@@ -2,16 +2,49 @@ const parentContainer = document.getElementById("flexbox-parent");
 const buttons = document.querySelectorAll(".button-section button");
 const addItem = document.querySelector("#add");
 const removeItem = document.querySelector("#remove");
+const codeContainer = document.getElementById("code-container")
 
 buttons.forEach(button => button.addEventListener("click", (e) => changeStyle(e)));
 addItem.addEventListener("click", (e) => createItem(e));
 removeItem.addEventListener("click", (e) => deleteItem(e));
 
+const parentContainerStyling = document.defaultView.getComputedStyle(parentContainer)
+let flexDirection = parentContainerStyling.flexDirection;
+
+function setStyling(property, value) {
+    propertyElement = document.createElement("code");
+    propertyElement.id = property
+    if (codeContainer.querySelector(`#${property}`)) {
+        codeContainer.removeChild(codeContainer.querySelector(`#${property}`));
+    }
+    switch (property) {
+        case "flexDirection":
+            propertyElement.innerHTML = `flex-direction: ${value};<br>`;
+            break;
+        case "flexWrap":
+            propertyElement.innerHTML = `flex-wrap: ${value};<br>`
+            break;
+        case "justifyContent":
+            propertyElement.innerHTML = `justify-content: ${value};<br>`
+            break;
+        case "alignItems":
+            propertyElement.innerHTML = `align-items: ${value};<br>`
+            break;
+        case "alignContent":
+            propertyElement.innerHTML = `align-content: ${value};<br>`
+            break;
+    }
+
+    codeContainer.appendChild(propertyElement)
+}
+
 function changeStyle(e) {
     e.target.parentNode.querySelectorAll("button").forEach(button => button.classList.remove("active"));
     e.target.className = "active";
     const propertyName = e.target.parentNode.querySelector("span").innerText;
-    return parentContainer.style[propertyName] = e.target.innerText;
+    const value = e.target.innerText
+    setStyling(propertyName, value)
+    return parentContainer.style[propertyName] = value;
 }
 
 function createItem(e) {
