@@ -3,12 +3,14 @@ const parentContainer = document.getElementById("flexbox-parent");
 const buttons = document.querySelectorAll(".button-section button");
 const addItem = document.querySelector("#add");
 const removeItem = document.querySelector("#remove");
+const resetButton = document.querySelector("#reset");
 const codeContainer = document.getElementById("code-container")
 
 // Event listeners on buttons
 buttons.forEach(button => button.addEventListener("click", (e) => changeStyle(e)));
 addItem.addEventListener("click", createItem);
 removeItem.addEventListener("click", deleteItem);
+resetButton.addEventListener("click", resetStyles);
 
 // Adds current CSS styling to right-hand box
 function setStyling(property, value) {
@@ -92,4 +94,17 @@ function deleteItem() {
     const newArray = parentContainer.querySelectorAll("div");
     const lastElement = newArray[newArray.length - 1];
     return parentContainer.removeChild(lastElement);
+}
+
+function resetStyles() {
+    codeContainer.innerHTML = "";
+    buttons.forEach(button => button.classList.remove("active"));
+    parentContainer.style.cssText = `
+        display: flex;
+        align-items: flex-start;
+        border: 5px solid black;
+        margin: 10px;
+        width: 100%;
+        height: 400px;
+    `
 }
