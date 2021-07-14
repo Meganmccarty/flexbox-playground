@@ -20,4 +20,5 @@ To create your own copy of this project:
 
 ## Resources Used
 - HTML, CSS, and vanilla JavaScript
+- [CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) as a guide
 - user1106925's [Stack Overflow](https://stackoverflow.com/questions/42722754/sorting-li-elements-alphabetically) answer on how to sort an array of HTML elements
